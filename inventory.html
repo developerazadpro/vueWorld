@@ -43,6 +43,11 @@
                     <td>:</td>
                     <td>{{ item.price }}</td>
                 </tr>
+                <tr>
+                    <th>Total</th>
+                    <th>:</th>
+                    <th>{{ total }}</th>
+                </tr>
             </table>
         </div>
         </div>
@@ -63,6 +68,15 @@
             ],
 			itemName:'',
             itemPrice:'',
+        },
+        computed:{
+            total(){
+                var total = 0
+                this.items.forEach(item =>[
+                    total += item.price
+                ])
+                return total
+            }
         },
 		methods:{
 			addItem(){
